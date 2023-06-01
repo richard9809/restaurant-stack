@@ -1,8 +1,15 @@
+import Navbar from "./Component/Navbar"
+import Sidebar from "./Component/Sidebar"
 
 function App() {
 
   return (
-    <h1>Hello World</h1>
+    <div className="flex flex-col h-screen">
+      <Navbar />
+      <div className="flex-1 flex">
+        <Sidebar />
+      </div>
+    </div>
   )
 }
 
