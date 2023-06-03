@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import MenuList from './../Component/MenuList';
 import './../custom.css';
+import Category from '../Component/Category';
 
 const Menu = () => {
   const menus = [
@@ -13,17 +14,6 @@ const Menu = () => {
 
   // // Get unique categories from the menus array
   // const categories = [...new Set(menus.map((menu) => menu.category))];
-
-  const categories = [
-    { id: 1, name: 'Breakfast' },
-    { id: 2, name: 'Alle Carte' },
-    { id: 3, name: 'Main Meal' },
-    { id: 4, name: 'Drinks' },
-    // Add more categories as needed
-  ];
-
-  const [selectedCategory, setSelectedCategory] = useState('');
-
   const handleCategoryClick = (name) => {
     setSelectedCategory(name);
     console.log('Category clicked:', name);
@@ -36,19 +26,8 @@ const Menu = () => {
         <MenuList menus={menus} />
       </div>
 
-      <footer className='mt-4 py-2 px-6'>
-        <div className='flex justify-center'>
-          {categories.map((category) => (
-            <button 
-              key={category.id}
-              className={`bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-md py-4 px-10 mr-4 ${selectedCategory === category.name ? 'bg-blue-500 text-white' : ''}`}
-              onClick={() => handleCategoryClick(category.name)}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
-      </footer>
+      <Category />
+
     </div>
   )
 }

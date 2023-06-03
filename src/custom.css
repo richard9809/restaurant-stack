@@ -2,4 +2,16 @@
     max-height: 630px; /* Set the maximum height as needed */
     overflow-y: auto;
     scroll-behavior: smooth;
-  }
+}
+
+.order-menu{
+  height: 650px; /* Set the maximum height as needed */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.new-order{
+  height: 450px; /* Set the maximum height as needed */
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}

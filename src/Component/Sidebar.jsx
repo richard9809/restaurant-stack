@@ -5,6 +5,7 @@ import Home from '../Pages/Home';
 import Menu  from '../Pages/Menu';
 import Payment from '../Pages/Payment';
 import Orders from '../Pages/Orders';
+import MakeOrder from '../Pages/MakeOrder';
 
 const Sidebar = () => {
   return (
@@ -22,6 +23,7 @@ const Sidebar = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path='/orders/table/:id' element={<MakeOrder />} />
       </Routes>
     </>
   );
