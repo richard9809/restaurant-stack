@@ -1,3 +1,5 @@
+'use client';
+import { Card } from 'flowbite-react';
 import React, { useState } from 'react';
 
 const MenuItem = ({ menu, onItemClick }) => {
@@ -8,6 +10,8 @@ const MenuItem = ({ menu, onItemClick }) => {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       outline: isSelected ? '3px solid #3B82F6' : 'none',
+      position: 'relative',
+      height: '12rem',
     };
 
     const handleItemClick = () => {
@@ -17,15 +21,16 @@ const MenuItem = ({ menu, onItemClick }) => {
   
     return (
 
-      <div className="bg-white rounded-lg shadow-md" onClick={handleItemClick} style={cardStyle}>
-        <div className="w-full h-36 rounded-t-md"></div>
-        <div className="bg-gray-100 p-2">
+      <div className="bg-white rounded-lg shadow-md cursor" onClick={handleItemClick} style={cardStyle}>
+        <div className="w-full h-24 rounded-t-md"></div>
+        <div className="bg-gray-100 p-2 rounded-b-lg" style={{ position: "absolute", bottom: 0, width: "100%", height: "5.5rem"}}>
           <h3 className="text-xl font-semibold mb-2">{menu.name}</h3>
           <p className="text-gray-600 mb-2">
-            Qty: {menu.quantity} | Price: KES {menu.price}
+            Qty: {menu.quantity} | Ksh {menu.price}
           </p>
         </div>
       </div>
+
     );
   };
 

@@ -22,7 +22,7 @@ const Home = () => {
   };
 
   return (
-    <div className='h-90 w-screen my-4 mx-8'>
+    <div >
       <TableList tables={tables} onTableClick={handleTableClick} />
     </div>
   )

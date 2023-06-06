@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import NewOrderItem from './NewOrderItem'
+import NewOrderItem from './NewOrderItem';
+import '../custom.css';
 
 const NewOrderList = ({ id, selectedMenus }) => {
   const [orderNumber, setOrderNumber] = useState('');
@@ -32,15 +33,6 @@ const NewOrderList = ({ id, selectedMenus }) => {
 
     //   Function for updating the order list when a new menu is selected
   useEffect(() => {
-    // const updatedItems = selectedMenus.map((menu) => ({
-    //     menuId: menu.id,
-    //     name: menu.name,
-    //     quantity: 1,
-    //     price: menu.price,
-    //     image: menu.image,
-    // }));
-    // setOrderItems(updatedItems);
-
     const updatedItems = selectedMenus.map((menu) => {
         const existingItem = orderItems.find((item) => item.menuId === menu.id);
         if (existingItem) {
@@ -76,8 +68,8 @@ const NewOrderList = ({ id, selectedMenus }) => {
     const formattedTotal = total.toLocaleString(); // Format total with commas
 
   return (
-    <div className='flex flex-col gap-4'>
-        <div className='border-b-2 border-dashed py-2'>
+    <div class="container">
+        <div class="top-container">
             <div className='grid grid-cols-2'>
                 <h2 className='text-3xl font-semibold'>ORDER #</h2>
                 <p className='flex justify-end text-2xl'>{orderNumber}</p>
@@ -88,25 +80,25 @@ const NewOrderList = ({ id, selectedMenus }) => {
             </div>
         </div>
 
-        <div className='new-order'>
+        <div class="new-order">
             {orderItems.map((orderItem) => (
                 <NewOrderItem key={orderItem.menuId} item={orderItem} onQuantityChange={handleQuantityChange} />
             ))}
         </div>
 
-        <div className='flex flex-col gap-4 border-2 border-dashed rounded-md'>
-            <div className='py-4 px-2 border-b-2 border-dashed'>
+        <div class="total-container">
+            <div className='py-2 px-2 border-b-2 border-dashed'>
                 <div className='grid grid-cols-2'>
                     <h3 className='text-3xl font-bold'>TOTAL</h3>
                     <p className='flex justify-end text-2xl font-semibold'>Ksh {formattedTotal}</p>
                 </div>
             </div>
 
-            <div className='py-3 flex justify-center gap-8'>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg mr-4">
+            <div className='flex justify-center gap-8 py-2'>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-lg ">
                     Cancel Order
                 </button>
-                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg">
+                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-lg">
                     Send Order
                 </button>
             </div>

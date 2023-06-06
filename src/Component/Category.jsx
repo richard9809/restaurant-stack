@@ -12,15 +12,15 @@ const Category = () => {
       ];
 
   return (
-    <footer className='mt-4 px-6'>
+    <footer className='px-6'>
         <div className='flex justify-center'>
           {categories.map((category) => (
               <button 
-              key={category.id}
-              className={`bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-md py-4 px-10 mr-4 ${selectedCategory === category.name ? 'bg-blue-500 text-white' : ''}`}
-              onClick={() => handleCategoryClick(category.name)}
+                key={category.id}
+                className={`bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-md py-2 px-10 mr-4 ${selectedCategory === category.name ? 'bg-blue-500 text-white' : ''}`}
+                onClick={() => handleCategoryClick(category.name)}
               >
-              {category.name}
+                {category.name}
               </button>
           ))}
         </div>
