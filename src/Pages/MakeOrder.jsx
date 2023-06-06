@@ -30,18 +30,18 @@ const MakeOrder = () => {
   };
 
   return (
-    <div className='grid grid-cols-3 w-full'>
-        <div className='col-span-2'>
-            <div className='order-menu mx-2 my-2'>
-              <MenuList menus={menus} onItemClick={handleItemClick} />
-            </div>
-            <div className='border-t'>
-                <Category />
-            </div>
+    <div className='makeOrder-page'>
+      <div className='makeOrder-section-1 col-span-2 flex flex-col'>
+        <div className='makeOrder-container'>
+          <MenuList menus={menus} onItemClick={handleItemClick} />
         </div>
-        <div className='border px-4 py-2'>
-          <NewOrderList id={id} selectedMenus={selectedMenus} />
+        <div className='border-t py-2'>
+          <Category />
         </div>
+      </div>
+      <div className='makeOrder-section-2 px-2'>
+        <NewOrderList id={id} selectedMenus={selectedMenus} />
+      </div>
     </div>
   )
 }

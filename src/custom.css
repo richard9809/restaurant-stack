@@ -1,17 +1,118 @@
-.scrollable-container {
-    max-height: 630px; /* Set the maximum height as needed */
-    overflow-y: auto;
-    scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.order-menu{
-  height: 650px; /* Set the maximum height as needed */
+body, html{
+  height: 100vh;
+  margin: 0;
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content-wrapper{
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  /* padding: .5rem 0; */
+}
+
+.menu-page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.menu-container {
+  flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.category-container{
+  height: 50px;
+}
+
+.makeOrder-page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+}
+
+.makeOrder-section-1 {
+  height: 100%;
+  overflow: hidden;
+}
+
+.makeOrder-section-2{
+  height: 100%;
+  overflow: hidden;
+}
+
+.makeOrder-container{
+  flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.top-container {
+  border-bottom: 2px dashed;
+  padding: 0.5rem;
+}
+
+.new-order {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.total-container {
+  border: 2px dashed;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin-bottom: .25rem;
+}
+
+.order-image {
+  width: 2.5rem;
+  height: 3rem;
+}
+
+/* .order-menu{
+  height: 572px; 
   overflow-y: auto;
   scroll-behavior: smooth;
 }
 
 .new-order{
-  height: 450px; /* Set the maximum height as needed */
+  height: 450px; 
   overflow-y: auto;
   scroll-behavior: smooth;
+} */
+
+.cursor{
+  cursor: pointer;
+}
+
+.h-inherit {
+  height: inherit;
+}
+
+.w-inherit {
+  width: inherit;
 }

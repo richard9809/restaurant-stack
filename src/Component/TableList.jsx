@@ -5,8 +5,8 @@ const TableList = ({ tables, onTableClick }) => {
     
   return (
     <div>
-        <h2 className='pb-2 border-b border-gray-400 text-4xl'>Table List</h2>
-        <div className='grid grid-cols-5 gap-4 my-4'>
+        <h2 className='pb-2 px-4 border-b border-gray-400 text-4xl'>Table List</h2>
+        <div className='grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 my-4 px-4'>
             {tables.map((table) => (
                 <TableItem 
                     key={table.id}

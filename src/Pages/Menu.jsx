@@ -9,7 +9,8 @@ const Menu = () => {
     { id: 2, name: 'White Rice', category: 'Alle Carte', image: '../../images/white-rice.jpg', quantity: 1, price: 150 },
     { id: 3, name: 'Pilau', category: 'Main Meal', image: '../../images/pilau.jpg', quantity: 3, price: 120 },
     { id: 4, name: 'Coca Cola', category: 'Drinks', image: '../../images/soda.jpg', quantity: 12, price: 35 },
-
+    { id: 5, name: 'Pizza BBQ', category: 'Main Meal', image: '../../images/pizza.jpg', quantity: 12, price: 1150 },
+ 
   ];
 
   // // Get unique categories from the menus array
@@ -20,14 +21,13 @@ const Menu = () => {
   };
 
   return (
-    <div className='flex flex-col min-h-90 w-screen my-4 mx-12'>
-      
-      <div className='flex-grow mx-12 scrollable-container p-4 border rounded'>
+    <div className='menu-page'>
+      <div className='menu-container'>
         <MenuList menus={menus} />
       </div>
-
-      <Category />
-
+      <div className='category-container py-1 border-t'>
+        <Category />
+      </div>
     </div>
   )
 }
