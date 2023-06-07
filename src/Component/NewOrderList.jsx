@@ -7,12 +7,14 @@ const NewOrderList = ({ id, selectedMenus }) => {
   const [orderItems, setOrderItems] = useState([]);
   const [total, setTotal] = useState(0);
 
-  // Fuction for updating the quantity of an item in the order list
+// Function for updating the quantity of an item in the order list
   const handleQuantityChange = (menuId, quantity) => {
-    const updatedItems = orderItems.map((item) => 
-        item.menuId === menuId ? { ...item, quantity } : item
-    );
-    setOrderItems(updatedItems);
+    setOrderItems((prevItems) => {
+      const updatedItems = prevItems.map((item) =>
+        item.menuId === menuId ? { ...item, quantity: parseInt(quantity) } : item
+      );
+      return updatedItems;
+    });
   };
 
   // Function to generate a random order number
@@ -33,30 +35,35 @@ const NewOrderList = ({ id, selectedMenus }) => {
 
     //   Function for updating the order list when a new menu is selected
   useEffect(() => {
-    const updatedItems = selectedMenus.map((menu) => {
-        const existingItem = orderItems.find((item) => item.menuId === menu.id);
-        if (existingItem) {
-            return { ...existingItem, quantity: menu.quantity };
-        } else {
-            return {
-                menuId: menu.id,
-                name: menu.name,
-                quantity: 1,
-                price: menu.price,
-                image: menu.image,
+    setOrderItems((prevItems) => {
+        const updatedItems = selectedMenus.map((menu) => {
+          const existingItem = prevItems.find((item) => item.menuId === menu.id);
+          if (existingItem) {
+            return { 
+              ...existingItem,
+              quantity: existingItem.quantity, // Keep the existing quantity
             };
-        }
-    });
-    setOrderItems(updatedItems);
+          } else {
+            return {
+              menuId: menu.id,
+              name: menu.name,
+              quantity: 1, // Set the initial quantity to 1
+              price: menu.price,
+              image: menu.image,
+            };
+          }
+        });
+        return updatedItems;
+      });
 
     // Cleanup function to remove the items not present in selectedMenus
     return () => {
-        setOrderItems((prevItems) => {
-            const updatedItems = prevItems.filter((item) => {
-                selectedMenus.some((menu) => menu.id === item.menuId)
-            });
-            return updatedItems;
-        });
+      setOrderItems((prevItems) => {
+        const updatedItems = prevItems.filter((item) =>
+          selectedMenus.some((menu) => menu.id === item.menuId)
+        );
+        return updatedItems;
+      });
     };
   }, [selectedMenus]);
 
@@ -68,7 +75,7 @@ const NewOrderList = ({ id, selectedMenus }) => {
     const formattedTotal = total.toLocaleString(); // Format total with commas
 
   return (
-    <div class="container">
+    <div class="container ">
         <div class="top-container">
             <div className='grid grid-cols-2'>
                 <h2 className='text-3xl font-semibold'>ORDER #</h2>
