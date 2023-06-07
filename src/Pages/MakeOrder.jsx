@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../custom.css';
@@ -31,7 +32,7 @@ const MakeOrder = () => {
 
   return (
     <div className='makeOrder-page'>
-      <div className='makeOrder-section-1 col-span-2 flex flex-col'>
+      <div className='makeOrder-section-1 col-span-2 flex flex-col border-r'>
         <div className='makeOrder-container'>
           <MenuList menus={menus} onItemClick={handleItemClick} />
         </div>
