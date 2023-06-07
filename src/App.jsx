@@ -6,6 +6,8 @@ import Menu from './Pages/Menu';
 import Payment from './Pages/Payment';
 import Orders from './Pages/Orders';
 import MakeOrder from './Pages/MakeOrder';
+import Checkout from './Pages/Checkout';
+import Edit from './Pages/Edit';
 
 function App() {
 
@@ -24,6 +26,9 @@ function App() {
             <Route path='/menu' element={<Menu />} />
             <Route path="/orders" element={<Orders />} />
             <Route path='/orders/table/:id' element={<MakeOrder />} />
+            <Route path='/orders/edit/:id' element={<Edit />} />
+            <Route path='/orders/checkout/:id' element={<Checkout />} />
+            <Route path='/payment' element={<Payment />} />
           </Routes>
         </main>
       </div>
