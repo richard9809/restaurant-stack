@@ -1,5 +1,6 @@
 import React from 'react'
 import OrderSummary from '../Component/OrderSummary'
+import Payment from '../Component/Payment'
 
 const Checkout = () => {
   return (
@@ -7,7 +8,9 @@ const Checkout = () => {
       <div className='col-span-3 h-full overflow-hidden'>
         <OrderSummary />
       </div>
-      <div className='h-full overflow-hidden bg-blue-500'>Checkout</div>
+      <div className='h-full overflow-hidden px-4 py-4 border-l'>
+        <Payment />
+      </div>
     </div>
   )
 }
